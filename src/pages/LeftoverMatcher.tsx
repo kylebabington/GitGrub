@@ -362,7 +362,6 @@ export function LeftoverMatcher() {
                 )}
 
                 <div className="flex gap-3">
-                <div className="flex gap-3">
                   <Button
                     onClick={() => navigate(`/recipe/${selectedMatch.recipe.id}`)}
                     variant="primary"

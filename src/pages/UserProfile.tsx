@@ -5,7 +5,9 @@ import { Card, CardBody } from '../components/Card';
 import { Button } from '../components/Button';
 import { BookOpen, Star, Award, TrendingUp, GitFork, Users, Calendar } from 'lucide-react';
 import { supabase } from '../lib/supabase';
-impoexport function UserProfile({ username }: { username: string }) {
+import { useAuth } from '../contexts/AuthContext';
+
+export function UserProfile({ username }: { username: string }) {
   const navigate = useNavigate();
   const { user: currentUser } = useAuth();
   const [profile, setProfile] = useState<any>(null);

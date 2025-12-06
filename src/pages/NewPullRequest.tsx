@@ -150,10 +150,6 @@ export function NewPullRequest({ recipeId }: { recipeId: string }) {
             <Button type="submit" disabled={submitting}>
               {submitting ? 'Creating...' : 'Create Pull Request'}
             </Button>
-          <div className="flex gap-4">
-            <Button type="submit" disabled={submitting}>
-              {submitting ? 'Creating...' : 'Create Pull Request'}
-            </Button>
             <Button
               type="button"
               variant="ghost"
