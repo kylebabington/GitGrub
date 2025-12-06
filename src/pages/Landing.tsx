@@ -1,8 +1,10 @@
-import { GitFork, Star, Users, TrendingUp, Code, BookOpen } from 'lucide-react';
+import { Star, Users, TrendingUp, Code, BookOpen } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '../components/Button';
 import { useAuth } from '../contexts/AuthContext';
 import { AppGuide } from '../components/AppGuide';
+import logoFull from '../assests/GitGrubForkLogo.png';
+import logoIcon from '../assests/ForkLogo.png';
 
 export function Landing() {
   const navigate = useNavigate();
@@ -13,19 +15,23 @@ export function Landing() {
       <section className="relative overflow-hidden bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
           <div className="text-center">
-            <div className="flex justify-center items-center gap-4 mb-6">
+            <div className="flex justify-center items-center gap-4 mb-8">
               <AppGuide />
             </div>
-            <div className="flex justify-center mb-6">
-              <GitFork className="text-emerald-600" size={64} />
+            
+            {/* Hero Logo */}
+            <div className="flex justify-center mb-8">
+              <img 
+                src={logoFull} 
+                alt="GitGrub" 
+                className="h-24 sm:h-32 w-auto drop-shadow-lg"
+              />
             </div>
-            <h1 className="text-6xl font-bold text-gray-900 mb-6">
-              GitGrub
-            </h1>
-            <p className="text-2xl text-gray-600 mb-4">
+            
+            <p className="text-2xl sm:text-3xl text-gray-600 mb-4 font-medium">
               Git in my belly.
             </p>
-            <p className="text-xl text-gray-600 mb-12 max-w-3xl mx-auto">
+            <p className="text-lg sm:text-xl text-gray-600 mb-12 max-w-3xl mx-auto">
               The collaborative recipe platform with version control. Fork recipes, propose improvements, and build your culinary legacy.
             </p>
             <div className="flex gap-4 justify-center">
@@ -65,8 +71,8 @@ export function Landing() {
 
           <div className="grid md:grid-cols-3 gap-12">
             <div className="text-center">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-emerald-100 rounded-full mb-6">
-                <GitFork className="text-emerald-600" size={32} />
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-orange-100 rounded-full mb-6 p-3">
+                <img src={logoIcon} alt="Fork" className="w-full h-full object-contain" />
               </div>
               <h3 className="text-2xl font-semibold text-gray-900 mb-4">Fork & Remix</h3>
               <p className="text-gray-600">

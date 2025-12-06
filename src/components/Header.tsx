@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Search, Bell, User, LogOut, Settings, Plus, GitFork, Menu, X } from 'lucide-react';
+import { Search, Bell, User, LogOut, Settings, Plus, Menu, X } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 import { Button } from './Button';
 import { supabase } from '../lib/supabase';
+import logoFull from '../assests/GitGrubForkLogo.png';
+import logoIcon from '../assests/ForkLogo.png';
 
 export function Header() {
   const navigate = useNavigate();
@@ -35,9 +37,18 @@ export function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center gap-8">
-            <Link to="/" className="flex items-center gap-2">
-              <GitFork className="text-emerald-600" size={32} />
-              <span className="text-2xl font-bold text-gray-900">GitGrub</span>
+            <Link to="/" className="flex items-center">
+              {/* Full logo on desktop, icon only on mobile */}
+              <img 
+                src={logoFull} 
+                alt="GitGrub" 
+                className="hidden sm:block h-10 w-auto"
+              />
+              <img 
+                src={logoIcon} 
+                alt="GitGrub" 
+                className="sm:hidden h-9 w-auto"
+              />
             </Link>
 
             <div className="hidden md:flex items-center gap-6">
