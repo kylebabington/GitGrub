@@ -27,17 +27,17 @@ export function Dashboard() {
     // Parallel fetching for better performance
     const [reposResult, recipeCountResult, starCountResult] = await Promise.all([
       supabase
-        .from('repos')
-        .select('*')
-        .eq('owner_id', user.id)
+      .from('repos')
+      .select('*')
+      .eq('owner_id', user.id)
         .order('updated_at', { ascending: false }),
       supabase
-        .from('recipes')
-        .select('*', { count: 'exact', head: true })
+      .from('recipes')
+      .select('*', { count: 'exact', head: true })
         .eq('created_by', user.id),
       supabase
-        .from('stars')
-        .select('*', { count: 'exact', head: true })
+      .from('stars')
+      .select('*', { count: 'exact', head: true })
         .eq('user_id', user.id),
     ]);
 

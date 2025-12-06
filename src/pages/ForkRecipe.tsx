@@ -100,13 +100,13 @@ export function ForkRecipe({ recipeId }: { recipeId: string }) {
       if (forkError) {
         // Handle quota error with user-friendly message
         if (forkError.message.includes('limited to 10 recipes')) {
-          setError('Free accounts are limited to 10 recipes. Upgrade to Pro for unlimited recipes.');
+      setError('Free accounts are limited to 10 recipes. Upgrade to Pro for unlimited recipes.');
         } else {
           throw forkError;
         }
-        setSubmitting(false);
-        return;
-      }
+      setSubmitting(false);
+      return;
+    }
 
       // Navigate to the new forked recipe
       navigate(`/recipe/${data.recipe_id}`);

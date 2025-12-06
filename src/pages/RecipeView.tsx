@@ -12,6 +12,7 @@ import { RecipeTimer, parseTimeFromText } from '../components/RecipeTimer';
 import { RecipeProgressTracker, StepIndicator } from '../components/RecipeProgressTracker';
 import { QuickCollections } from '../components/QuickCollections';
 import { CookTonightButton } from '../components/CookTonightButton';
+import { ForkAncestryTree } from '../components/ForkAncestryTree';
 import { Star, GitFork, Clock, ChefHat, Users, MessageCircle, Play, GitPullRequest, History, GitBranch, Edit, Calendar, TrendingUp } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 import { useAuth } from '../contexts/AuthContext';
@@ -433,23 +434,10 @@ export function RecipeView({ recipeId }: { recipeId: string }) {
               </Card>
             )}
 
-            {recipe.original_recipe_id && (
-              <Card className="mb-8 border-emerald-200 bg-emerald-50">
-                <CardBody>
-                  <p className="text-sm text-emerald-700">
-                    <GitFork size={14} className="inline mr-1" />
-                    Forked from{' '}
-                    <button
-                      type="button"
-                      onClick={() => navigate(`/recipe/${recipe.original_recipe_id}`)}
-                      className="font-semibold hover:underline"
-                    >
-                      original recipe
-                    </button>
-                  </p>
-                </CardBody>
-              </Card>
-            )}
+            {/* Fork Ancestry Tree - shows recipe lineage */}
+            <div className="mb-8">
+              <ForkAncestryTree recipeId={recipeId} compact />
+            </div>
           </div>
 
           <div className="lg:col-span-1">
